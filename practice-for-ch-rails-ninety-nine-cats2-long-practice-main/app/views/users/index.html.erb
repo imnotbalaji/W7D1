@@ -1,0 +1,11 @@
+<h1>All the users!</h1>
+
+<% @user.each do |user|  %>
+
+<ul>
+    <li><%= @user.username %></li>
+    <a href="<%= user_url(@user) %>" value = "Show page" ></a>
+    
+</ul>
+
+<% end  %>
