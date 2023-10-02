@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     end 
     # require logout
     def require_logout
-        redirect_to users_url if logged_in
+        redirect_to users_url if logged_in?
     end 
     # current_user
     def current_user
