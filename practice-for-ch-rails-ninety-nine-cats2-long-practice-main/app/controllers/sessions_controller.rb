@@ -7,8 +7,13 @@ class SessionsController < ApplicationController
     def create
         @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
         # goes into 'login' method in ApplicationController
-        @user.reset_session_token!
-        session[:session_token] = @user.session_token
+        if @user
+            login(@user)
+            redirect_to user_url(@user)
+        else
+            @user = {username: params[:user][:username]}
+            render :new
+        end
     end
 
 
